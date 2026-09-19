@@ -19,10 +19,7 @@ import (
 
 func main() {
 	// Load environment variables
-	err := godotenv.Load()
-	if err != nil {
-		panic("Error loading .env file")
-	}
+	_ = godotenv.Load()
 
 	// MongoDB connection
 	mongoURI := os.Getenv("MONGODB_URI")
