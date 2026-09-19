@@ -144,5 +144,10 @@ protectedPolls.Use(middleware.AuthRequired())
 }
 
 	// Start server
-	router.Run(":8080")
+	port := os.Getenv("PORT")
+if port == "" {
+    port = "10000"
+}
+
+router.Run("0.0.0.0:" + port)
 }
