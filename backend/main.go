@@ -88,11 +88,14 @@ println("Redis connected successfully!")
 
 	// CORS
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5173"},
-		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
-		AllowCredentials: true,
-	}))
+    AllowOrigins: []string{
+        "http://localhost:5173",
+        "https://live-polling-wheat-theta.vercel.app",
+    },
+    AllowMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+    AllowHeaders: []string{"Origin", "Content-Type", "Authorization"},
+    AllowCredentials: false,
+}))
 
 	// Health check
 	router.GET("/", func(c *gin.Context) {
